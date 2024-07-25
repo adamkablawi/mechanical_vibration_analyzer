@@ -53,7 +53,7 @@ t_eval = np.linspace(t_span[0], t_span[1], 1000)  # 1000 time points for evaluat
 sol = solve_ivp(equation, t_span, y0, t_eval=t_eval)
 
 # Plotting the results
-plt.figure(figsize=(5, 6))
+plt.figure(figsize=(5, 10))
 plt.plot(sol.t, sol.y[0], label='Displacement (m)')
 plt.plot(sol.t, sol.y[1], label='Velocity (m/s)')
 plt.title('Mechanical Vibration System Response')
