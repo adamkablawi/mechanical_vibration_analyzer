@@ -19,17 +19,21 @@ k = float(input("In N/m, what is the spring constant of the spring?: "))
 i1 = float(input("In m, what is the initial displacement of the weight from equilibrium?: "))
 i2 = float(input("In m/s, what is the initial velocity of the weight?: "))
 
-# Discriminant to Determine Vibration Type
+# Discriminant of Characteristic Equation to Determine Vibration Type
 dsc = c * c - 4 * m * k
-if dsc > 0:
-    osctype = "Overdamped Mechanical Vibration"
+if c == 0:
+    osctype = "Undamped Mechanical Vibration"
     print(f"The system is an {osctype} system.")
-elif dsc < 0:
-    osctype = "Underdamped Mechanical Vibration"
-    print(f"The system is an {osctype} system.")
-elif dsc == 0:
-    osctype = "Critically Damped Mechanical Vibration"
-    print(f"The system is a {osctype} system.")
+else:
+    if dsc > 0:
+        osctype = "Overdamped Mechanical Vibration"
+        print(f"The system is an {osctype} system.")
+    elif dsc < 0:
+        osctype = "Underdamped Mechanical Vibration"
+        print(f"The system is an {osctype} system.")
+    elif dsc == 0:
+        osctype = "Critically Damped Mechanical Vibration"
+        print(f"The system is a {osctype} system.")
 
 # Differential equation solver function
 def equation(t, y):
